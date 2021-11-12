@@ -1,0 +1,41 @@
+<div class="main-content">
+    <div class="header-content">
+        <div class="emp-detail-text">Employee Details<div class="emp-count"></div>
+        </div>
+        <a class="serachbutton"></a><img src="../../../assets/download.png" style="height: 40px;
+        pointer-events: bounding-box;
+        right: 25%;
+        position: absolute;
+        border-radius: 25px;">
+        <a class="add-button"><img src="../assets/icons/add-24px.svg" routerLink="/employeesforms"> Add User</a>
+    </div>
+
+</div>
+<div class="table-main">
+
+    <table id="table-display" class="table">
+        <tr class="employee">
+            <th>NAME</th>
+            <th>GENDER</th>
+            <th>DEPARTMENT</th>
+            <th>SALARY</th>
+            <th>START DATE</th>
+            <th>ACTION</th>
+        </tr>
+        <tr *ngFor="let emp of employee" class="detailoftab">
+            <td>{{emp.name | uppercase}}</td>
+            <td>{{emp.gender}}</td>
+            <td>{{emp.departments}}</td>
+            <td>{{emp.salary | currency:'&#8377;' }}</td>
+            <td>{{emp.startDate | date }}</td>
+            <td>
+                <img src="../../../assets/icons/delete-black-18dp.svg" (click)=onDelete(emp.id)>
+                &nbsp;
+                <img src="../../../assets/icons/create-black-18dp.svg">
+            </td>
+
+        </tr>
+    </table>
+
+
+</div>

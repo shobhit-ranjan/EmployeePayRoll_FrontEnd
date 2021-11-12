@@ -1,0 +1,163 @@
+<app-header></app-header>
+<div class="form-content">
+    <form class="form" #userForm="ngForm" (ngSubmit)="onsumbit(userForm)" novalidate>
+
+        <div class="form-head">Employee Payroll Form</div>
+        <div class="row-content">
+            <label class="label text">Name</label>
+            <input (change)=onChange(ename) class="inputname" type="text" pattern="[A-Z][a-z]{4,}" required
+                #ename="ngModel" name="name" [(ngModel)]="userForm.name">
+            <div *ngIf="ename.invalid && (ename.dirty || ename.touched)" class="alert alert-danger">
+                <div *ngIf="ename.errors">
+                    Name is required.
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row-content">
+            <label class="label text" for="profile">Profile Image</label>
+            <div class="profile-radio-content">
+                <label>
+                    <input type="radio" id="profile1" name="profilePic" ngModel
+                        value="../assets/profile-images/Ellipse-1.png" required>
+                    <img class="profile" id='image1' src="../../../assets/profile-images/Ellipse 1.png">
+                </label>
+                <label>
+                    <input type="radio" id="profile2" name="profilePic" ngModel
+                        value="../assets/profile-images/Ellipse-2.png" required>
+                    <img class="profile" id='image2' src="../../../assets/profile-images/Ellipse -2.png">
+                </label>
+                <label>
+                    <input type="radio" id="profile3" name="profilePic" ngModel
+                        value="../../../assets/profile-images/Ellipse -1.png" required>
+                    <img class="profile" id='image3' src="../../../assets/profile-images/Ellipse -1.png">
+                </label>
+                <label>
+                    <input type="radio" id="profile4" name="profilePic" ngModel
+                        value="../../../assets/profile-images/Ellipse -1.png" required>
+                    <img class="profile" id='image4' src="../../../assets/profile-images/Ellipse -3.png">
+                </label>
+            </div>
+        </div>
+
+        <div class="row-content">
+            <label class="label text">Gender</label>
+            <div>
+                <input type="radio" value="M" name="gender" ngModel>
+                <label class="text" for="male">Male</label>
+                <input type="radio" value="F" name="gender" ngModel>
+                <label class="text" for="female">Female</label>
+            </div>
+
+        </div>
+
+        <div class="row-content">
+            <label class="label text">Department</label>
+            <div *ngFor="let dep of departmentList">
+                <input class="checkbox" type="checkbox" ngModel name="departments" [checked]="dep.selecteddep"
+                    (change)="departmentChange(dep.id)" value="{{dep.value}}">
+                <label class="text" for="hr">{{dep.value}}</label>
+            </div>
+        </div>
+
+
+        <div class="row-content">
+            <label class="label text">Salary</label>
+            <div class="form-select" required>
+                <select name="salary" ngModel>
+                    <option *ngFor="let  displayed of salary" value="{{displayed}}">
+                        {{displayed}}</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="row-content">
+            <label class="label text">Start Date</label>
+            <div class="form-select" required>
+                <select name="day" ngModel>
+                    <option *ngFor="let  displayed of salary" value="{{displayed}}">
+                        {{displayed}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row-content">
+            <label class="label text">Start Date</label>
+            <div>
+                <select id="day" name="day" ngModel>
+                    <option value="01">1</option>
+                    <option value="02">2</option>
+                    <option value="03">3</option>
+                    <option value="04">4</option>
+                    <option value="05">5</option>
+                    <option value="06">6</option>
+                    <option value="07">7</option>
+                    <option value="08">8</option>
+                    <option value="09">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>
+
+                <select id="month" name="month" ngModel>
+                    <option value="01">January</option>
+                    <option value="02">Febuary</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+
+                <select id="year" name="year" ngModel>
+
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                </select>
+            </div>
+        </div>
+        <div class="row-content">
+            <label class="label text">Notes</label>
+            <textarea id="notes" class="input" pattern="[a-z]{5,}" placeholder="Notes." name="note" ngModel
+                style="height:100px; width:600px"></textarea>
+
+        </div>
+        <div class="buttonParent">
+            <a routerLink="/home">
+                <button mat-raised-button class="resetButton button cancelButton">Cancel</button>
+            </a>
+            <div class="submit-reset">
+                <button mat-raised-button type="submit" class="button submitButton">Submit</button>
+                <button mat-raised-button type="reset" class="resetButton button">Reset</button>
+            </div>
+        </div>
+    </form>
+</div>

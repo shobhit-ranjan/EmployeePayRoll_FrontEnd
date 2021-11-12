@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Shobhit Ranjan",
+        "gender": "MALE",
+        "Deapartments": "SALES",
+        "salary": 10000,
+        "startDate": "10-11-2021"
+    },
+    {
+        "name": "Himanshu Tiwari",
+        "gender": "MALE",
+        "Deapartments": "ADMIN",
+        "salary": 15000,
+        "startDate": "15-11-2021"
+    },
+    {
+        "name": "Abhinav Singh",
+        "gender": "MALE",
+        "Deapartments": "DESK",
+        "salary": 8000,
+        "startDate": "11-11-2021"
+    },
+    {
+        "name": "Ram kumar",
+        "gender": "MALE",
+        "Deapartments": "Sales",
+        "salary": 15000,
+        "startDate": "11-12-2021"
+    }
+]
